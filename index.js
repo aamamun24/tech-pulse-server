@@ -27,7 +27,6 @@ async function run() {
         // Connect the client to the server	(optional starting in v4.7)
         await client.connect();
 
-
         const productCollection = client.db('techPulseDB').collection('products')
         const cartCollection = client.db('techPulseDB').collection('cart')
 
@@ -89,7 +88,6 @@ async function run() {
             const result = await cartCollection.deleteOne(query)
             res.send(result)
         })
-
 
 
         // Send a ping to confirm a successful connection
