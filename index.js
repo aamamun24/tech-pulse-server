@@ -65,7 +65,7 @@ async function run() {
                     rating: updatedProduct.rating,
                 }
             }
-            const result = await cartCollection.updateOne(filter, product, options)
+            const result = await productCollection.updateOne(filter, product, options)
             res.send(result)
         })
 
