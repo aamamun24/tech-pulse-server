@@ -29,6 +29,7 @@ async function run() {
 
 
         const productCollection = client.db('techPulseDB').collection('products')
+        const cartCollection = client.db('techPulseDB').collection('cart')
 
         app.get('/products', async (req, res) => {
             const cursor = productCollection.find()
@@ -39,6 +40,13 @@ async function run() {
         app.post('/products', async (req, res) => {
             const newProduct = req.body;
             const result = await productCollection.insertOne(newProduct)
+            res.send(result)
+        })
+
+        // cart collection
+        app.post('/cart', async(req, res) =>{
+            const newCart = req.body;
+            const result = await cartCollection.insertOne(newCart)
             res.send(result)
         })
 
